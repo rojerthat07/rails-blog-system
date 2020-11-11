@@ -1,0 +1,28 @@
+h1 Create new Account
+
+
+- if @account.errors.any?
+    h2 The following errors prevented the users from being saved
+
+    ul
+        - @account.errors.full_messages.each do |msg|
+            li = msg
+
+
+= form_for :account, local: true, url: url_for(controller: 'accounts'), html: { :class => "group__form" } do |f| 
+    
+    p
+        =f.text_field :firstname, class:"", placeholder:"Enter First Name"   
+    p
+        =f.text_field :lastname, class:"", placeholder:"Enter Last Name" 
+    p
+        =f.text_field :username, class:"", placeholder:"Enter Username"   
+    p
+        =f.email_field :email, class:"", placeholder:"Enter Email"   
+    p  
+        =f.password_field :password, class:"", placeholder:"Enter Password"   
+    
+    
+    p   
+        =f.submit class:"", value:"Create an Account"
+     
